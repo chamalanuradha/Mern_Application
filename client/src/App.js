@@ -19,7 +19,7 @@ export default class App extends Component {
   fetchPosts = () => {
     axios.get('http://localhost:8080/getposts') // Adjust the URL as needed
       .then(response => {
-        this.setState({ posts: response.data }); // Update state with the fetched posts
+        this.setState({ posts: response.data.existingposts }); // Update state with the fetched posts
       })
       .catch(error => {
         this.setState({ error: error.message }); // Update state with the error message

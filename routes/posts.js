@@ -18,7 +18,7 @@ router.post('/addpost', async (req, res) => {
 router.get('/getposts', async (req, res) => {
     try {
         const posts = await Posts.find();
-        res.status(200).json(posts);
+        res.status(200).json({existingposts: posts});
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
