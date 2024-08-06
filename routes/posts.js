@@ -3,16 +3,26 @@ const Posts = require('../models/posts');
 
 const router = express.Router();
 
-router.post('/addpost', (req, res) => {
-    const post = new Posts(req.body);
-    post.save((err) => {
-        if (err) {
-            res.status(400).json({ error: err });
-        } else {
-            res.status(200).json({ success: 'Post saved successfully' });
-        }
-    })
+// Add a new post
+router.post('/addpost', async (req, res) => {
+    try {
+        const post = new Posts(req.body);
+        await post.save();
+        res.status(200).json({ success: 'Post saved successfully' });
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
 });
 
+//Get post details
+router.get('/getposts', async (req, res) => {
+    try {
+        const posts = await Posts.find();
+        res.status(200).json(posts);
+    }catch (err) {
+        res.status(400).json
+    }
+});
+
+
 module.exports = router;
-    
