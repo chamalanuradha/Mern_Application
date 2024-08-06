@@ -1,23 +1,22 @@
 const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
-    topic:{
-        typeof: 'string',
+    topic: {
+        type: String,
         required: true
     },
-    description : {
-        typeof: 'string',
+    description: {
+        type: String,
         required: true
     },
     author: {
-        typeof: 'string',
+        type: String,
         required: true
     },
     date: {
-        typeof: 'date',
+        type: Date,
         required: true
-    
     }
-})
+});
 
 module.exports = mongoose.model('Post', postSchema); //Post is the name of the collection
