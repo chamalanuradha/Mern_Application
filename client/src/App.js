@@ -6,7 +6,6 @@ export default class App extends Component {
     super(props);
     this.state = {
       posts: [], // Initialize an empty array for storing fetched posts
-      error: null, // Initialize error state to handle any errors
     };
   }
 
@@ -27,26 +26,33 @@ export default class App extends Component {
   };
 
   render() {
-    const { posts, error } = this.state;
+    const { posts } = this.state;
 
     return (
       <div>
-        <h1>Posts</h1>
-        {error && <p>Error: {error}</p>}
-        {posts.length > 0 ? (
-          <ul>
+        <h3>All Posts</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Post ID</th>
+              <th scope="col">Post Topic</th>
+              <th scope="col">Post description</th>
+              <th scope="col">Author</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody>
             {posts.map(post => (
-              <li key={post._id}>
-                <h2>{post.topic}</h2>
-                <p>Des: {post.description}</p>
-                <p>Author: {post.author}</p>
-                <p>Date: {new Date(post.date).toLocaleDateString()}</p>
-              </li>
+              <tr key={post._id}>
+                <td>{post._id}</td>
+                <td>{post.topic}</td>
+                <td>{post.description}</td>
+                <td>{post.author}</td>
+                <td>{post.date}</td>
+              </tr>
             ))}
-          </ul>
-        ) : (
-          <p>No posts available</p>
-        )}
+          </tbody>
+        </table>
       </div>
     );
   }
