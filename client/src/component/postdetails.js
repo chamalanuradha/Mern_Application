@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class postdetails extends Component {
-  render() {
-    return (
-      <div>postdetails</div>
-    )
-  }
+export default function postdetails() {
+  return (
+    <div>postdetails</div>
+  )
 }

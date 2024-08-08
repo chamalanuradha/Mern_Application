@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class createpost extends Component {
-  render() {
-    return (
-      <div>createpost</div>
-    )
-  }
+export default function createpost() {
+  return (
+    <div>createpost</div>
+  )
 }

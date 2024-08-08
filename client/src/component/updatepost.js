@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class updatepost extends Component {
-  render() {
-    return (
-      <div>updatepost</div>
-    )
-  }
+export default function updatepost() {
+  return (
+    <div>updatepost</div>
+  )
 }
+
