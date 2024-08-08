@@ -24,6 +24,16 @@ router.get('/getposts', async (req, res) => {
     }
 });
 
+//Get specific post details
+router.get('/getpost/:id', async (req, res) => {
+    try {
+        const post = await Posts.findById(req.params.id);
+        res.status(200).json({post: post});
+    }catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+});
+
 // Update post details
 router.put('/updatepost/:id', async (req, res) => {
     try {
