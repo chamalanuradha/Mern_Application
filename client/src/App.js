@@ -1,6 +1,8 @@
 import React, { Component }  from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import Navbar from './component/navbar';
+
 import HomeComponent from './component/home';
 import CreatepostComponent from './component/createpost';
 import UpdatepostComponent from './component/updatepost';
@@ -12,6 +14,7 @@ export default class App extends Component {
     return(
 <Router>
       <div>
+      <Navbar/>
         <Routes>
           <Route path="/" exact element={<HomeComponent />} />
           <Route path="/createpost"  element={<CreatepostComponent />}/>

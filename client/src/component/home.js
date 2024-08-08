@@ -1,8 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+import './home.css'
 
 
 
@@ -52,17 +54,21 @@ export default class Home extends Component {
           {posts.map((post, index) => (
              <tr key={index}>
                 <td>{index+1}</td>
-                <td>{post.topic}</td>
+                <td>
+        <Link to={`/postdetails/${post._id}`} className='topic'>
+          {post.topic}
+        </Link>
+      </td>
                 <td>{post.description}</td>
                 <td>{post.author}</td>
                 <td>{post.date}</td>
-                <a className="btn btn-primary" href="#">
-                      <FontAwesomeIcon icon={faEdit} />&nbsp;Edit
-                    </a>
-                    &nbsp;
-                    <a className="btn btn-danger" href="#">
-                      <FontAwesomeIcon icon={faTrash} />&nbsp;Delete
-                    </a>
+                <button className="btn btn-primary">
+            <FontAwesomeIcon icon={faEdit} />&nbsp;Edit
+          </button>
+          &nbsp;
+          <button className="btn btn-danger">
+            <FontAwesomeIcon icon={faTrash} />&nbsp;Delete
+          </button>
               </tr>
             ))}
           </tbody>
