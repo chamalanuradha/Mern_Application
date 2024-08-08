@@ -1,5 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Import FontAwesomeIcon
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'; // Import specific icons
+
+
 
 export default class App extends Component {
   constructor(props) {
@@ -29,9 +34,10 @@ export default class App extends Component {
     const { posts } = this.state;
 
     return (
-      <div>
+      <div className = "container">
+        <div className = "mt-3">
         <h3>All Posts</h3>
-        <table class="table table-striped">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Post ID</th>
@@ -39,20 +45,30 @@ export default class App extends Component {
               <th scope="col">Post description</th>
               <th scope="col">Author</th>
               <th scope="col">Date</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            {posts.map(post => (
-              <tr key={post._id}>
-                <td>{post._id}</td>
+          {posts.map((post, index) => (
+             <tr key={index}>
+                <td>{index+1}</td>
                 <td>{post.topic}</td>
                 <td>{post.description}</td>
                 <td>{post.author}</td>
                 <td>{post.date}</td>
+                <a className="btn btn-primary" href="#">
+                      <FontAwesomeIcon icon={faEdit} />&nbsp;Edit
+                    </a>
+                    &nbsp;
+                    <a className="btn btn-danger" href="#">
+                      <FontAwesomeIcon icon={faTrash} />&nbsp;Delete
+                    </a>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
+        
       </div>
     );
   }
