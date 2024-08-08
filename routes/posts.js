@@ -30,10 +30,7 @@ router.put('/updatepost/:id', async (req, res) => {
         const post = await Posts.findByIdAndUpdate(
             req.params.id, // ID of the post to update
             req.body, // Updated data from request body
-            {
-                new: true, // Return the updated document
-                runValidators: true // Validate against schema
-            }
+            
         );
         
         if (!post) {

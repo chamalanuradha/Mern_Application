@@ -38,7 +38,7 @@ export default class App extends Component {
             {posts.map(post => (
               <li key={post._id}>
                 <h2>{post.topic}</h2>
-                <p>{post.description}</p>
+                <p>Des: {post.description}</p>
                 <p>Author: {post.author}</p>
                 <p>Date: {new Date(post.date).toLocaleDateString()}</p>
               </li>
