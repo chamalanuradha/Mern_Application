@@ -25,11 +25,25 @@ const Home = () => {
     }
   };
 
-   // Function to handle delete (you can implement actual delete logic)
-   const handleDelete = (postId) => {
+// Function to handle delete with confirmation
+const handleDelete = async (postId) => {
+  // Show a confirmation dialog
+  const confirmDelete = window.confirm('Are you sure you want to delete this post?');
 
-    console.log('Delete post with ID:', postId);
-  };
+  // If the user confirms, proceed with deletion
+  if (confirmDelete) {
+    try {
+      const response = await axios.delete(`http://localhost:8080/deletepost/${postId}`);
+      if (response.status === 200) {
+        // Update the state to remove the deleted post from the list
+        window.location.reload();
+        console.log('Post deleted successfully');
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  }
+};
 
   return (
     <div className="container">
