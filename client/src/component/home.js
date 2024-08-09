@@ -45,6 +45,10 @@ const handleDelete = async (postId) => {
   }
 };
 
+const encodeId = (id) => {
+  return btoa(id); // Encode ID to Base64
+};
+
   return (
     <div className="container">
       <div className="mt-3">
@@ -70,7 +74,7 @@ const handleDelete = async (postId) => {
               <tr key={index}>
                 <td>{index + 1}</td>
                 <td>
-                  <Link to={`/postdetails/${post._id}`} className="topic">
+                  <Link to={`/postdetails/${encodeId(post._id)}`} className="topic">
                     {post.topic}
                   </Link>
                 </td>
