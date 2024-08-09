@@ -30,7 +30,7 @@ const PostDetails = () => {
  
 
   if (!post) {
-    return <div>Loading...</div>; // Show a loading message while fetching
+    return <div className="container">Loading...</div>; // Show a loading message while fetching
   }
 
 
