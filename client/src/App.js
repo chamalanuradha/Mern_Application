@@ -6,6 +6,10 @@ import HomeComponent from './component/home';
 import CreatepostComponent from './component/createpost';
 import UpdatepostComponent from './component/updatepost';
 import PostDetailsComponent from './component/postdetails';
+import AboutComponent from './component/about';
+import ContactComponent from './component/contact';
+import LoginComponent from './component/login';
+import PricingComponent from './component/pricing';
 
 // import './App.css';
 
@@ -19,6 +23,10 @@ const App = () => {
           <Route path="/createpost" element={<CreatepostComponent />} />
           <Route path="/updatepost/:id" element={<UpdatepostComponent />} />
           <Route path="/postdetails/:id" element={<PostDetailsComponent />} />
+          <Route path="/about" element={<AboutComponent />} />
+          <Route path="/contact" element={<ContactComponent />} /> 
+          <Route path="/pricing" element={<PricingComponent />}/>
+          <Route path="/login" element={<LoginComponent />} />
         </Routes>
       </div>
     </Router>
