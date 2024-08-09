@@ -11,12 +11,17 @@ const UpdatePost = () => {
 
   const navigate = useNavigate();
   const { id } = useParams(); // Get the post ID from the URL
+  //  function to decode Base64
+  const decodeId = (encodedId) => {
+    return atob(encodedId); 
+  };
 
   // Fetch the post details when the component mounts
   useEffect(() => {
     const fetchPostDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/getpost/${id}`);
+        const decodedId = decodeId(id); 
+        const response = await axios.get(`http://localhost:8080/getpost/${decodedId}`);
         const post = response.data.post;
         setTopic(post.topic);
         setDescription(post.description);
@@ -44,7 +49,8 @@ const UpdatePost = () => {
     };
 
     try {
-      const response = await axios.put(`http://localhost:8080/updatepost/${id}`, postData);
+      const decodedId = decodeId(id); 
+      const response = await axios.put(`http://localhost:8080/updatepost/${decodedId}`, postData);
       if (response.status === 200) {
         alert('Post updated successfully');
         navigate('/'); // Navigate to the home page after successful update

@@ -82,7 +82,7 @@ const encodeId = (id) => {
                 <td>{post.author}</td>
                 <td>{new Date(post.date).toLocaleDateString()}</td>
                 <td>
-                  <Link to={`/updatepost/${post._id}`} className="btn btn-primary">
+                  <Link to={`/updatepost/${encodeId(post._id)}`} className="btn btn-primary">
                     <FontAwesomeIcon icon={faEdit} />&nbsp;Edit
                   </Link>
                   &nbsp;
